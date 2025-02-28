@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-neutral-100 min-h-screen">
       <Layout.Header />
       <UI.Wrapper className="h-[80vh] grid place-items-center rounded-xl border bg-white mt-5 shadow">
         <div className="w-[40rem] mx-auto text-center">
