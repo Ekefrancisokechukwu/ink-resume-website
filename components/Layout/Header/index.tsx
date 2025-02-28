@@ -11,7 +11,9 @@ export const Header = () => {
         <UI.Button variant={"ghost"} asChild>
           <Link href={"/auth"}>Login</Link>
         </UI.Button>
-        <UI.Button>Get Started</UI.Button>
+        <UI.Button asChild>
+          <Link href={"/app/start-here"}>Get Started</Link>
+        </UI.Button>
       </div>
     </header>
   );
