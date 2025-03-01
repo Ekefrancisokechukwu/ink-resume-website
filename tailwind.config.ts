@@ -53,6 +53,9 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
       },
+      boxShadow: {
+        fade: "0px 4px 8px rgba(34, 42, 53, .05), 0px 0px 0px 1px rgba(34, 42, 53, .08), 0px 1px 5px -4px rgba(19, 19, 22, .7)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
