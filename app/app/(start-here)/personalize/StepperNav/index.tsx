@@ -61,7 +61,7 @@ export const StepperNav = () => {
       initial={{ x: "-100%" }}
       animate={{ x: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="h-screen sticky border-r top-0 w-[18rem] bg-white pt-[1rem] pl-[2rem]"
+      className="h-screen sticky border-r top-0 w-[18rem] bg-white pt-[1rem] pl-[2rem] md:block hidden"
     >
       <UI.Logo />
       <ul className="space-y-1.5  mt-10">
