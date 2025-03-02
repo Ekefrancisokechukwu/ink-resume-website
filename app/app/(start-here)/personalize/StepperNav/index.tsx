@@ -26,14 +26,6 @@ const sections = [
   },
 ];
 
-// type SectionsProps =
-//   | "personal information"
-//   | "experience"
-//   | "skills"
-//   | "summary"
-//   | "education"
-//   | "certification";
-
 export const StepperNav = () => {
   const [currentSection, setCurentSection] = React.useState(1);
 
@@ -74,15 +66,15 @@ export const StepperNav = () => {
               <div className="flex flex-col items-center gap-y-1.5">
                 <div
                   className={cn(
-                    "border size-[1.5rem] text-neutral-300 transition-all duration-200 text-sm grid place-items-center font-semibold  rounded-md",
+                    "border size-[1.3rem] text-neutral-300 transition-all duration-200 text-sm grid place-items-center font-semibold  rounded-md",
                     activeSection ? "bg-primary-black " : "",
                     passedSection ? "bg-primary-black" : ""
                   )}
                 >
                   {passedSection ? (
                     <svg
-                      width="20"
-                      height="20"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
