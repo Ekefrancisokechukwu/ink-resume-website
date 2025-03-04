@@ -205,14 +205,14 @@ const SortableExperienceItem = ({ item }: { item: ExperienceItem }) => {
             <UI.Button
               size={"sm"}
               variant={"secondary"}
-              className="text-neutral-400 hover:text-neutral-600"
+              className="text-neutral-500 hover:text-neutral-600"
             >
               <Trash />
             </UI.Button>
             <UI.Button
               size={"sm"}
               variant={"secondary"}
-              className="text-neutral-400 hover:text-neutral-600"
+              className="text-neutral-500 hover:text-neutral-600"
             >
               <Pencil />
             </UI.Button>
