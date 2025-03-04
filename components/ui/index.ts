@@ -29,9 +29,31 @@ import { Label } from "./label";
 import { Logo } from "./Logo";
 import { Overlay } from "./Overlay";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "./select";
 import { Wrapper } from "./Wrapper";
 
 export const UI = {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
   CommandDialog,
   Command,
   CommandEmpty,
