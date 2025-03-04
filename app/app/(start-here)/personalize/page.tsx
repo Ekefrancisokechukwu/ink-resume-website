@@ -5,6 +5,7 @@ import { StepperNav } from "./StepperNav";
 import {
   Check,
   ChevronsUpDown,
+  CirclePlus,
   CircleUser,
   GripVertical,
   Pencil,
@@ -33,6 +34,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { restrictToParentElement } from "@dnd-kit/modifiers";
+import { it } from "node:test";
 
 const personalLinks = ["linkedin", "x", "website", "github", "behance"];
 
@@ -172,7 +174,7 @@ const SortableExperienceItem = ({ item }: { item: ExperienceItem }) => {
       style={style}
       className={isDragging ? "relative z-10" : ""}
     >
-      <div className="flex items-center gap-x-3">
+      <div className="flex items-center justify-between gap-x-3">
         <div className="flex items-center gap-x-1">
           <button
             {...attributes}
@@ -184,11 +186,14 @@ const SortableExperienceItem = ({ item }: { item: ExperienceItem }) => {
           >
             <GripVertical size={17} className="text-neutral-500" />
           </button>{" "}
-          <h4 className="font-semibold">{item.position}</h4>
+          <h4 className="font-semibold">{item.company}</h4>
           <UI.Button size={"sm"} variant={"ghost"}>
             <Pencil size={15} />
           </UI.Button>
         </div>
+        <button className="flex items-center gap-x-2 text-sm p-1 hover:underline font-semibold text-neutral-600">
+          <CirclePlus size={15} /> Add another position
+        </button>
       </div>
       <div
         className={cn(
@@ -198,8 +203,8 @@ const SortableExperienceItem = ({ item }: { item: ExperienceItem }) => {
       >
         <div className="flex items-center justify-between">
           <div>
-            <h5 className="font-medium text-sm">Frontend Developer</h5>
-            <p className="text-sm mt-1 text-neutral-500">Jan 2024 - Present</p>
+            <h5 className="font-medium text-sm">{item.position}</h5>
+            <p className="text-sm mt-1 text-neutral-500">{item.period}</p>
           </div>
           <div className="flex items-center gap-x-3">
             <UI.Button
