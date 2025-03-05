@@ -6,10 +6,11 @@ import { Label } from "./label";
 interface InputProps extends React.ComponentProps<"input"> {
   label?: string;
   rightIcon?: React.ReactNode;
+  leftIcon?: React.ReactNode;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, id, rightIcon, ...props }, ref) => {
+  ({ className, type, label, id, rightIcon, leftIcon, ...props }, ref) => {
     return (
       <div className="flex flex-col gap-y-1.5">
         {label && <Label htmlFor={label}>{label}</Label>}
@@ -18,12 +19,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <div className="absolute top-1/2  -translate-y-1/2 right-2 [&_svg]:size-4">
             {rightIcon}
           </div>
+          <div className="absolute top-1/2  -translate-y-1/2 left-2 [&_svg]:size-4">
+            {leftIcon}
+          </div>
           <input
             type={type}
             className={cn(
               "flex h-8 transition-all  duration-200 w-full rounded-lg border border-input bg-background px-3 py-2 text-base ring-offset-accent file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
               className,
-              rightIcon ? "!pr-7" : ""
+              rightIcon ? "!pr-7" : "",
+              leftIcon ? "!pl-7" : ""
             )}
             ref={ref}
             id={id || label}
