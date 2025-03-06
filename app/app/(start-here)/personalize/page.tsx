@@ -86,7 +86,7 @@ const PersonalizePage = () => {
   return (
     <div className="bg-neutral-50 min-h-screen grid md:grid-cols-[auto_1fr] w-full md:pl-0 ">
       <StepperNav />
-      <section className="grid   items-center   pl-[5rem] pr-[3rem]   pt-10 pb-24">
+      <section className="grid   2xl:items-start items-center   pl-[5rem] pr-[3rem] max-w-[80rem]   pt-10 pb-24">
         <Skills />
         {/* <AddExperince /> */}
         {/* <Experience /> */}
@@ -130,27 +130,29 @@ const Experience = () => {
       </p>
 
       <div className="mt-20">
-        <DndContext
-          sensors={sensors}
-          collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}
-          modifiers={[restrictToParentElement]}
-        >
-          <div className="space-y-6">
-            <SortableContext
-              items={items.map((item) => item.id)}
-              strategy={verticalListSortingStrategy}
-            >
-              {items.map((item) => (
-                <SortableExperienceItem key={item.id} item={item} />
-              ))}
-            </SortableContext>
-            <button className="border-dashed border-2 text-sm font-semibold text-neutral-600 bg-white justify-center  px-7 py-3 rounded-lg w-full flex items-center gap-x-3">
-              <CirclePlus size={18} />{" "}
-              {items.length > 0 ? "Add another Job" : "Add Job"}
-            </button>
-          </div>
-        </DndContext>
+        <div className="max-w-[35rem]">
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+            modifiers={[restrictToParentElement]}
+          >
+            <div className="space-y-6">
+              <SortableContext
+                items={items.map((item) => item.id)}
+                strategy={verticalListSortingStrategy}
+              >
+                {items.map((item) => (
+                  <SortableExperienceItem key={item.id} item={item} />
+                ))}
+              </SortableContext>
+              <button className="border-dashed border-2 text-sm font-semibold text-neutral-600 bg-white justify-center  px-7 py-3 rounded-lg w-full flex items-center gap-x-3">
+                <CirclePlus size={18} />{" "}
+                {items.length > 0 ? "Add another Job" : "Add Job"}
+              </button>
+            </div>
+          </DndContext>
+        </div>
       </div>
     </div>
   );
@@ -263,7 +265,7 @@ const PersonalInformation = () => {
   );
 
   return (
-    <div>
+    <div className="max-w-[35rem]">
       <UI.Heading text="Personal Information" />
       <Photo />
       <div className="mt-7 space-y-4">

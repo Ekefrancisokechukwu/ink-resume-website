@@ -1,5 +1,5 @@
 import { UI } from "@/components/ui";
-import { CirclePlus, GripHorizontal, Search, Trash2 } from "lucide-react";
+import { CirclePlus, GripHorizontal, Plus, Search, Trash2 } from "lucide-react";
 import {
   DndContext,
   closestCenter,
@@ -84,7 +84,7 @@ export const Skills = () => {
           You&apos;re on a roll. Let&apos;s find relevant skills for the job
           your applying for. Listing 6-10 skills is best.
         </p>
-        <div className="mt-[2rem] grid grid-cols-2 items-start gap-x-6 ">
+        <div className="mt-[2rem] grid grid-cols-2 items-start gap-x-8 ">
           <div className="max-w-[35rem] w-full ">
             <DndContext
               sensors={sensors}
@@ -113,19 +113,28 @@ export const Skills = () => {
               />
             </div>
 
-            <div className="mt-5 flex items-center flex-wrap scroll-bar gap-2 h-[25rem] overflow-y-auto px-4 pb-4 ">
-              {frontendSkills.map((skill) => {
+            <div className="mt-5 flex items-center flex-col scroll-bar gap-y-2 h-[25rem] overflow-y-auto px-4 pb-4 ">
+              {frontendSkills.slice(0, 5).map((skill) => {
                 return (
                   <button
                     key={skill}
-                    className=" inline-flex w-full rounded-lg hover:border-primary-black border  px-3 py-2 text-neutral-600 bg-white"
+                    className=" inline-flex gap-x-2 w-full rounded-lg hover:border-primary-black border  px-3 py-2 text-neutral-600 bg-white"
                   >
+                    <div className="size-[1.7rem] grid place-items-center text-white bg-primary-black rounded-full">
+                      <Plus size={15} />
+                    </div>
                     {skill}
                   </button>
                 );
               })}
             </div>
           </div>
+        </div>
+        <div className="flex items-center justify-start gap-x-5 mt-11">
+          <UI.Button variant={"outline"} className="w-[18rem]">
+            Back
+          </UI.Button>
+          <UI.Button className="w-[18rem]">Save</UI.Button>
         </div>
       </div>
     </div>
