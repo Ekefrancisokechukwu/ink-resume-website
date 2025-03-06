@@ -84,7 +84,7 @@ export const Skills = () => {
           You&apos;re on a roll. Let&apos;s find relevant skills for the job
           your applying for. Listing 6-10 skills is best.
         </p>
-        <div className="mt-[2rem] grid grid-cols-2 gap-x-6 ">
+        <div className="mt-[2rem] grid grid-cols-2 items-start gap-x-6 ">
           <div className="max-w-[35rem] w-full ">
             <DndContext
               sensors={sensors}
@@ -97,21 +97,34 @@ export const Skills = () => {
                   items={skills.map((skill) => skill)}
                   strategy={verticalListSortingStrategy}
                 >
-                  {skills.slice(0, 5).map((skill) => {
+                  {skills.slice(0, 10).map((skill) => {
                     return <SortableSkill key={skill} skill={skill} />;
                   })}
                 </SortableContext>
               </ul>
             </DndContext>
           </div>
-          <div className="w-[25rem] border p-3 rounded-lg">
-            <UI.Input
-              leftIcon={<Search />}
-              defaultValue={"Frontend developer"}
-              className="bg-transparent"
-            />
+          <div className="w-[25rem] border pb-3  sticky top-[5rem] rounded-lg">
+            <div className="px-4 py-2">
+              <UI.Input
+                leftIcon={<Search />}
+                defaultValue={"Frontend developer"}
+                className="bg-transparent"
+              />
+            </div>
 
-            <div className="mt-5"></div>
+            <div className="mt-5 flex items-center flex-wrap scroll-bar gap-2 h-[25rem] overflow-y-auto px-4 pb-4 ">
+              {frontendSkills.map((skill) => {
+                return (
+                  <button
+                    key={skill}
+                    className=" inline-flex w-full rounded-lg hover:border-primary-black border  px-3 py-2 text-neutral-600 bg-white"
+                  >
+                    {skill}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
