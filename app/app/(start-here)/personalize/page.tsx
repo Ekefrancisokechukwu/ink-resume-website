@@ -35,6 +35,7 @@ import {
 import { restrictToParentElement } from "@dnd-kit/modifiers";
 import { AddExperince } from "./AddExperince";
 import { Skills } from "./Skills";
+import { Summary } from "./Summary";
 
 const personalLinks = ["linkedin", "x", "website", "github", "behance"];
 
@@ -87,7 +88,8 @@ const PersonalizePage = () => {
     <div className="bg-neutral-50 min-h-screen grid md:grid-cols-[auto_1fr] w-full md:pl-0 ">
       <StepperNav />
       <section className="grid   2xl:items-start items-center   pl-[5rem] pr-[3rem] max-w-[80rem]   pt-10 pb-24">
-        <Skills />
+        <Summary />
+        {/* <Skills /> */}
         {/* <AddExperince /> */}
         {/* <Experience /> */}
         {/* <PersonalInformation /> */}

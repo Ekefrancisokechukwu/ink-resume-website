@@ -134,7 +134,8 @@ export const Skills = () => {
           <UI.Button variant={"outline"} className="w-[18rem]">
             Back
           </UI.Button>
-          <UI.Button className="w-[18rem]">Save</UI.Button>
+
+          <UI.Button className="w-[18rem]">Next</UI.Button>
         </div>
       </div>
     </div>
