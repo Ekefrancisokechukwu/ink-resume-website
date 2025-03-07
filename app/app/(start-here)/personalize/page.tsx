@@ -38,6 +38,26 @@ import { Skills } from "./Skills";
 import { Summary } from "./Summary";
 
 const personalLinks = ["linkedin", "x", "website", "github", "behance"];
+const sections = [
+  {
+    section: "personal information",
+  },
+  {
+    section: "experience",
+  },
+  {
+    section: "skills",
+  },
+  {
+    section: "summary",
+  },
+  {
+    section: "education",
+  },
+  {
+    section: "certifications",
+  },
+];
 
 type ExperienceItem = {
   id: string;
@@ -84,15 +104,38 @@ const initialItems: ExperienceItem[] = [
 ];
 
 const PersonalizePage = () => {
+  const [currentSection, setCurentSection] = React.useState({
+    index: 1,
+    section: "personal information",
+  });
+
+  const sections: Record<string, React.ReactNode> = {
+    "personal information": <PersonalInformation />,
+    experience: <Experience />,
+    skills: <Skills />,
+    summary: <Summary />,
+  };
+
   return (
     <div className="bg-neutral-50 min-h-screen grid md:grid-cols-[auto_1fr] w-full md:pl-0 ">
-      <StepperNav />
+      <StepperNav
+        currentSection={currentSection}
+        setCurentSection={setCurentSection}
+      />
       <section className="grid   2xl:items-start items-center   pl-[5rem] pr-[3rem] max-w-[80rem]   pt-10 pb-24">
-        <Summary />
-        {/* <Skills /> */}
+        {/* <Summary />
+        <Skills /> */}
         {/* <AddExperince /> */}
         {/* <Experience /> */}
         {/* <PersonalInformation /> */}
+        <motion.div
+          key={currentSection.index}
+          transition={{ duration: 0.3, stiffness: 50, mass: 0.3 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
+        >
+          {sections[currentSection.section]}
+        </motion.div>
       </section>
     </div>
   );

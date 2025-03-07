@@ -1,5 +1,3 @@
-"use client";
-
 import { UI } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import React from "react";
@@ -26,8 +24,21 @@ const sections = [
   },
 ];
 
-export const StepperNav = () => {
-  const [currentSection, setCurentSection] = React.useState(1);
+type StepperNavProps = {
+  currentSection: { index: number; section: string };
+  setCurentSection: React.Dispatch<
+    React.SetStateAction<{
+      index: number;
+      section: string;
+    }>
+  >;
+};
+
+export const StepperNav = ({
+  currentSection,
+  setCurentSection,
+}: StepperNavProps) => {
+  // const [currentSection, setCurentSection] = React.useState(1);
 
   const tickVariants = {
     checked: {
@@ -59,8 +70,8 @@ export const StepperNav = () => {
       <ul className="space-y-1.5  mt-10">
         {sections.map((section, index) => {
           const sectionIndex = index + 1;
-          const activeSection = currentSection === sectionIndex;
-          const passedSection = currentSection > sectionIndex;
+          const activeSection = currentSection.index === sectionIndex;
+          const passedSection = currentSection.index > sectionIndex;
           return (
             <li key={index} className="flex items-start group  gap-x-5">
               <div className="flex flex-col items-center gap-y-1.5">
@@ -101,10 +112,15 @@ export const StepperNav = () => {
                 <div className="h-[1.5rem] group-last:hidden  w-1 bg-gradient-to-t from-neutral-100  to-neutral-200" />
               </div>
               <p
-                onClick={() => setCurentSection(sectionIndex)}
+                onClick={() =>
+                  setCurentSection({
+                    index: sectionIndex,
+                    section: section.section,
+                  })
+                }
                 className={cn(
                   " cursor-pointer capitalize font-medium",
-                  activeSection ? "text-primary-black" : "text-neutral-500"
+                  activeSection ? "text-primary-black" : "text-neutral-400"
                 )}
               >
                 {section.section}
