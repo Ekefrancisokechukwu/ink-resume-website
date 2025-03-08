@@ -5,6 +5,7 @@ import { FaFile } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
 import React from "react";
 import { motion } from "motion/react";
+import { UI } from "@/components/ui";
 
 const UploadResumeModal = () => {
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
@@ -38,7 +39,7 @@ const UploadResumeModal = () => {
 
         <label
           htmlFor="brows-resume"
-          className="border-2 border-dashed grid place-items-center cursor-default transition-colors duration-500 hover:bg-neutral-200/50  p-6 bg-neutral-100 mt-6  rounded-lg"
+          className="border-[5px] border-dashed grid place-items-center cursor-default transition-colors duration-500 hover:bg-neutral-200/50  p-14 bg-neutral-100 mt-6  rounded-lg"
         >
           <CloudUpload size={35} className="text-neutral-600" />
 
@@ -55,6 +56,10 @@ const UploadResumeModal = () => {
             id="brows-resume"
             className="sr-only"
           />
+
+          {/* <UI.Button variant={"outline"} className="rounded-full mt-3">
+            Browse
+          </UI.Button> */}
         </label>
 
         {selectedFile && (

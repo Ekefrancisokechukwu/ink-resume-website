@@ -22,6 +22,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
+  DropdownMenuTrigger,
 } from "./dropdown-menu";
 import { Heading } from "./Heading";
 import { Input } from "./input";
@@ -29,6 +30,7 @@ import { Label } from "./label";
 import { Logo } from "./Logo";
 import { Overlay } from "./Overlay";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+import { ScrollArea, ScrollBar } from "./scroll-area";
 import {
   Select,
   SelectContent,
@@ -41,9 +43,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./select";
+import { Slider } from "./slider";
 import { Wrapper } from "./Wrapper";
 
 export const UI = {
+  Slider,
+  ScrollArea,
+  ScrollBar,
   Select,
   SelectContent,
   SelectGroup,
@@ -67,6 +73,7 @@ export const UI = {
   PopoverTrigger,
   PopoverContent,
   DropdownMenu,
+  DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,

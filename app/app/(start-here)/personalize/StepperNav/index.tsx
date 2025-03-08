@@ -25,21 +25,19 @@ const sections = [
 ];
 
 type StepperNavProps = {
-  currentSection: { index: number; section: string };
-  setCurentSection: React.Dispatch<
+  currentSection: number;
+  setCurrentSection: React.Dispatch<
     React.SetStateAction<{
       index: number;
-      section: string;
+      section: React.JSX.Element;
     }>
   >;
 };
 
 export const StepperNav = ({
   currentSection,
-  setCurentSection,
+  setCurrentSection,
 }: StepperNavProps) => {
-  // const [currentSection, setCurentSection] = React.useState(1);
-
   const tickVariants = {
     checked: {
       pathLength: 1,
@@ -70,8 +68,8 @@ export const StepperNav = ({
       <ul className="space-y-1.5  mt-10">
         {sections.map((section, index) => {
           const sectionIndex = index + 1;
-          const activeSection = currentSection.index === sectionIndex;
-          const passedSection = currentSection.index > sectionIndex;
+          const activeSection = currentSection === sectionIndex;
+          const passedSection = currentSection > sectionIndex;
           return (
             <li key={index} className="flex items-start group  gap-x-5">
               <div className="flex flex-col items-center gap-y-1.5">
@@ -113,10 +111,7 @@ export const StepperNav = ({
               </div>
               <p
                 onClick={() =>
-                  setCurentSection({
-                    index: sectionIndex,
-                    section: section.section,
-                  })
+                  setCurrentSection((prev) => ({ ...prev, index: index + 1 }))
                 }
                 className={cn(
                   " cursor-pointer capitalize font-medium",

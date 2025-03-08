@@ -50,7 +50,12 @@ const frontendSkills: string[] = [
   "Cloud & Deployment (AWS, Firebase, Vercel, Netlify)",
 ];
 
-export const Skills = () => {
+type SkillsProps = {
+  nextPage: () => void;
+  prevPage: () => void;
+};
+
+export const Skills = ({ nextPage, prevPage }: SkillsProps) => {
   const [skills, setSkills] = React.useState<string[]>(frontendSkills);
 
   const sensors = useSensors(
@@ -131,11 +136,17 @@ export const Skills = () => {
           </div>
         </div>
         <div className="flex items-center justify-start gap-x-5 mt-11">
-          <UI.Button variant={"outline"} className="w-[18rem]">
+          <UI.Button
+            onClick={prevPage}
+            variant={"outline"}
+            className="w-[18rem]"
+          >
             Back
           </UI.Button>
 
-          <UI.Button className="w-[18rem]">Next</UI.Button>
+          <UI.Button onClick={nextPage} className="w-[18rem]">
+            Next
+          </UI.Button>
         </div>
       </div>
     </div>
