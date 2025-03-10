@@ -1,5 +1,5 @@
-import { defaultTransition } from "@/constant/transitions";
-import { Brush, LucideProps } from "lucide-react";
+// import { defaultTransition } from "@/constant/transitions";
+import { LucideProps } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import React from "react";
 
@@ -8,18 +8,27 @@ type CollapsableMenuProps = {
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >;
   content: React.ReactNode;
+  isExpandable?: boolean;
+  handleExpand?: () => void;
 };
 
 export const CollapsableMenu = ({
   content,
   TrigggerIcon,
+  handleExpand,
+  isExpandable,
 }: CollapsableMenuProps) => {
   const [isMenuOpen, setIsMenu] = React.useState(false);
 
   return (
     <div>
       <motion.button
-        onClick={() => setIsMenu((prev) => !prev)}
+        onClick={() => {
+          setIsMenu((prev) => !prev);
+          if (isExpandable && handleExpand) {
+            handleExpand();
+          }
+        }}
         transition={{
           type: "spring",
           duration: 0.2,
@@ -40,6 +49,7 @@ export const CollapsableMenu = ({
               damping: 11,
               duration: 0.3,
               mass: 0.5,
+              restSpeed: 1,
             }}
             style={{ transformOrigin: "top" }}
             initial="collapsed"
