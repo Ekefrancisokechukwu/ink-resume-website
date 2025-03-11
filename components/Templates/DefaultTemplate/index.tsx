@@ -4,6 +4,7 @@ import { AboutMeProfileSection } from "./AboutMeProfileSection";
 import { SkillsSection } from "./SkillsSection";
 import { LangaugeSection } from "./LanguageSection";
 import { CertificationSection } from "./CertificationSection";
+import { ExperienceSection } from "./ExperienceSection";
 
 export const DefaultTemplate = () => {
   return (
@@ -11,6 +12,7 @@ export const DefaultTemplate = () => {
       <div className="space-y-3 flex-grow">
         <ProfileSection />
         <AboutMeProfileSection />
+        <ExperienceSection />
       </div>
       <div className="  space-y-3  md:w-[15rem] w-[12rem]">
         <ContactSection />

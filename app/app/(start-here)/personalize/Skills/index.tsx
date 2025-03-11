@@ -1,5 +1,5 @@
 import { UI } from "@/components/ui";
-import { CirclePlus, GripHorizontal, Plus, Search, Trash2 } from "lucide-react";
+import { GripHorizontal, Plus, Search, Trash2 } from "lucide-react";
 import {
   DndContext,
   closestCenter,

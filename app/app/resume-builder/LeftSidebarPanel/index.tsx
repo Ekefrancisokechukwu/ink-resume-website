@@ -27,6 +27,7 @@ export const LeftSidebarPanel = () => {
 
   return (
     <motion.aside
+      initial={{ width: "10rem" }}
       animate={expandSidebar ? { width: "15rem" } : { width: "10rem" }}
       className="min-w-[10rem] md:block hidden  border-r h-screen sticky top-0 px-5 pt-3"
     >

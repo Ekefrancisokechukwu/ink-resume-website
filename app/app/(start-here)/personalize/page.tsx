@@ -38,6 +38,8 @@ import { Skills } from "./Skills";
 import { Summary } from "./Summary";
 import { Experience } from "./Experince";
 import { PersonalInformation } from "./PersonalInfo";
+import { Education } from "./Education";
+import { Certifications } from "./Certifications";
 
 const PersonalizePage = () => {
   const nextPage = () => {
@@ -72,8 +74,8 @@ const PersonalizePage = () => {
       component: <Skills prevPage={prevPage} nextPage={nextPage} />,
     },
     { section: "summary", component: <Summary /> },
-    // { section: "education", component: <Education /> },
-    // { section: "certifications", component: <Certifications /> },
+    { section: "Education", component: <Education /> },
+    { section: "certifications", component: <Certifications /> },
   ];
 
   const [currentSection, setCurrentSection] = React.useState({

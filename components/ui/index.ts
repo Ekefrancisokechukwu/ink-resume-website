@@ -44,9 +44,21 @@ import {
   SelectValue,
 } from "./select";
 import { Slider } from "./slider";
+import { Text } from "./Text";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./tooltip";
 import { Wrapper } from "./Wrapper";
 
 export const UI = {
+  Text,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  TooltipProvider,
   Slider,
   ScrollArea,
   ScrollBar,

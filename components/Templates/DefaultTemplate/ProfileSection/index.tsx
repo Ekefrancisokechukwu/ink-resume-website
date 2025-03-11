@@ -2,10 +2,11 @@ import { MapPin, Rocket } from "lucide-react";
 import Image from "next/image";
 import { Card } from "../Card";
 import { IconBox } from "../IconBox";
+import { Overlay } from "../Overlay";
 
 export const ProfileSection = () => {
   return (
-    <div className="flex items-center gap-x-3">
+    <div className="flex items-center gap-x-3 z-10 relative group/card">
       <div className="w-[8rem] shrink-0 rounded-xl relative h-[9rem] bg-neutral-100">
         <Image
           alt="user profile pic"
@@ -32,7 +33,7 @@ export const ProfileSection = () => {
           </p>
         </div>
       </Card>
-      {/* <div className="bg-white border flex flex-col justify-between p-4 flex-grow rounded-xl h-[11rem]"></div> */}
+      <Overlay />
     </div>
   );
 };
