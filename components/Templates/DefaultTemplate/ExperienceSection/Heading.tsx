@@ -4,12 +4,11 @@ import { useSelector } from "react-redux";
 type HeadingProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export const Heading = ({ ...props }: HeadingProps) => {
-  const { headingFontSize, tracking } = useSelector(
+  const { tracking } = useSelector(
     (state: RootState) => state.customization.customize
   );
 
   const style: React.CSSProperties = {
-    // fontSize: `${headingFontSize}rem`,
     letterSpacing: `${tracking}em`,
   };
 

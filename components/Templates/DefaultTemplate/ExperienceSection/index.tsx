@@ -5,8 +5,14 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { Overlay } from "../Overlay";
 import { UI } from "@/components/ui";
 import { Heading } from "./Heading";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export const ExperienceSection = () => {
+  const color = useSelector(
+    (state: RootState) => state.customization.customize.color
+  );
+
   return (
     <Card className="relative hover:z-10 group/card">
       <HeadingContainer heading="Work Experience" icon={BriefcaseBusiness} />
@@ -18,7 +24,10 @@ export const ExperienceSection = () => {
               <article key={i} className="flex items-stretch gap-x-3">
                 <div className="flex flex-col items-center">
                   <div className="size-[1rem] p-[2px]  grid place-items-center shrink-0 border rounded-full relative  ">
-                    <span className="w-full h-full block rounded-full bg-neutral-500"></span>
+                    <span
+                      style={color ? { background: color } : {}}
+                      className="w-full h-full block rounded-full bg-neutral-500"
+                    ></span>
                   </div>
                   <div className="flex-grow bg-border w-[1px] " />
                 </div>

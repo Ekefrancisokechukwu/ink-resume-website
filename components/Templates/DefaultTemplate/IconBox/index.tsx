@@ -18,24 +18,19 @@ export const IconBox = ({ Icon }: IconBoxProps) => {
     (state: RootState) => state.customization.customize.color
   );
 
-  const getColorForTailwind = (color: string) => color.replace("#", "");
-
-  //   const style: React.CSSProperties = {
-  //     lineHeight: `${lineHeight}%`,
-  //     letterSpacing: `${tracking}em`,
-  // };
-
-  console.log(color);
-
   const iconStyle = {
     color: color,
   };
 
+  const boxStyle = {
+    border: `solid 1px ${color}`,
+  };
+
   return (
     <div
+      style={color ? boxStyle : {}}
       className={cn(
-        "size-[2rem] flex-shrink-0 grid place-items-center rounded-lg border  ",
-        color ? `bg-[#${getColorForTailwind(color)}]/50` : "bg-neutral-100"
+        "size-[2rem] flex-shrink-0 grid place-items-center rounded-lg border  bg-neutral-100"
       )}
     >
       <Icon
