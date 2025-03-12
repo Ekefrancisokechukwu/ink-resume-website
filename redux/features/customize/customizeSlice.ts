@@ -2,10 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CustomizationState {
   size: number;
-  fontSize: string;
+  fontSize: number | null;
   color: string;
   letterSpacing: string;
   fontFamily: string;
+  headingFontSize: number;
+  lineHeight: number;
+  tracking: number;
 }
 
 interface IcustomizationSlice {
@@ -15,9 +18,12 @@ interface IcustomizationSlice {
 
 const initialState: IcustomizationSlice = {
   customize: {
+    tracking: 0,
+    lineHeight: 150,
     color: "",
     fontFamily: "Arial",
-    fontSize: "16",
+    fontSize: null,
+    headingFontSize: 1,
     letterSpacing: "",
     size: 100,
   },
@@ -25,9 +31,16 @@ const initialState: IcustomizationSlice = {
 };
 
 const customizationSlice = createSlice({
-  name: "customization",
+  name: "resumeStyle",
   initialState,
   reducers: {
+    updateCustomization: (
+      state,
+      action: PayloadAction<Partial<CustomizationState>>
+    ) => {
+      state.customize = { ...state.customize, ...action.payload };
+    },
+
     setSize: (state, action: PayloadAction<number>) => {
       state.customize.size = action.payload;
     },
@@ -37,6 +50,7 @@ const customizationSlice = createSlice({
   },
 });
 
-export const { setSize, toggleSidebar } = customizationSlice.actions;
+export const { setSize, toggleSidebar, updateCustomization } =
+  customizationSlice.actions;
 
 export default customizationSlice.reducer;

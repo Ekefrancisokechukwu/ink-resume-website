@@ -3,6 +3,9 @@ import { FontStyleDropdown } from "../FontStyleDropdown";
 import { CollapsableMenu } from "../CollapsableMenu";
 import { PaintbrushVertical, Telescope } from "lucide-react";
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "@/redux/store";
+import { updateCustomization } from "@/redux/features/customize/customizeSlice";
 
 const colorThemes = [
   { primary: "#1E3A8A", secondary: "#3B82F6" }, // Classic Blue
@@ -24,9 +27,10 @@ const colorThemes = [
 
 export const RightSidebarPanel = () => {
   const [fontSize, setFontSize] = React.useState([10]);
-  const [headingSize, setHeadingSize] = React.useState([10]);
-  const [letterSpaceing, setLetterSpaceing] = React.useState([13]);
-  const [lineheight, setLineHeight] = React.useState([10]);
+  const { lineHeight, headingFontSize, tracking } = useSelector(
+    (state: RootState) => state.customization.customize
+  );
+  const dispatch = useAppDispatch();
 
   return (
     <aside className="md:block hidden min-w-[10rem] w-[18rem] border-l space-y-6 h-screen sticky top-0 px-5 pt-3">
@@ -40,6 +44,9 @@ export const RightSidebarPanel = () => {
                 return (
                   <button
                     key={index}
+                    onClick={() =>
+                      dispatch(updateCustomization({ color: color.secondary }))
+                    }
                     style={{ backgroundColor: color.primary }}
                     className="inline-block flex-shrink-0 rounded-full  size-[1.3rem] hover:ring-offset-2 hover:ring-2 ring-neutral-300 ring-offset-neutral-200 transition-all duration-300"
                   ></button>
@@ -74,14 +81,18 @@ export const RightSidebarPanel = () => {
                 <p className="font-semibold text-xs mb-2 text-neutral-500">
                   Heading size
                 </p>
-                <p className=" text-neutral-400 text-sm mb-2">{headingSize}</p>
+                <p className=" text-neutral-400 text-sm mb-2">
+                  {headingFontSize}rem
+                </p>
               </div>
               <UI.Slider
-                onValueChange={(value) => setHeadingSize(value)}
-                value={headingSize}
-                max={20}
-                step={5}
-                min={5}
+                onValueChange={(value) =>
+                  dispatch(updateCustomization({ headingFontSize: value[0] }))
+                }
+                value={[headingFontSize]}
+                max={2}
+                step={0.3}
+                min={1}
               />
             </div>
             <div className="mt-6">
@@ -95,16 +106,18 @@ export const RightSidebarPanel = () => {
                   </p>
                   <div>
                     <p className=" text-neutral-400 text-sm mb-2">
-                      {letterSpaceing}
+                      {tracking}em
                     </p>
                   </div>
                 </div>
                 <UI.Slider
-                  onValueChange={(value) => setLetterSpaceing(value)}
-                  value={letterSpaceing}
-                  max={20}
-                  step={5}
-                  min={5}
+                  onValueChange={(value) =>
+                    dispatch(updateCustomization({ tracking: value[0] }))
+                  }
+                  value={[tracking]}
+                  max={0.35}
+                  step={0.05}
+                  min={0}
                 />
               </div>
               <div className="mt-3">
@@ -114,16 +127,18 @@ export const RightSidebarPanel = () => {
                   </p>
                   <div>
                     <p className=" text-neutral-400 text-sm mb-2">
-                      {lineheight}%
+                      {lineHeight}%
                     </p>
                   </div>
                 </div>
                 <UI.Slider
-                  onValueChange={(value) => setLineHeight(value)}
-                  value={lineheight}
-                  max={100}
+                  onValueChange={(value) =>
+                    dispatch(updateCustomization({ lineHeight: value[0] }))
+                  }
+                  value={[lineHeight]}
+                  max={250}
                   step={5}
-                  min={10}
+                  min={100}
                 />
               </div>
             </div>

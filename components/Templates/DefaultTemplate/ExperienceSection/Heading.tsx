@@ -1,26 +1,23 @@
 import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
 
-type HeadingProps = {
-  text: string;
-};
+type HeadingProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export const Heading = ({ text }: HeadingProps) => {
+export const Heading = ({ ...props }: HeadingProps) => {
   const { headingFontSize, tracking } = useSelector(
     (state: RootState) => state.customization.customize
   );
 
   const style: React.CSSProperties = {
-    fontSize: `${headingFontSize}rem`,
+    // fontSize: `${headingFontSize}rem`,
     letterSpacing: `${tracking}em`,
   };
 
   return (
-    <h2
+    <h1
       style={style}
-      className="font-semibold truncate  transition-all duration-200"
-    >
-      {text}
-    </h2>
+      className="font-semibold leading-4  text-neutral-800"
+      {...props}
+    />
   );
 };

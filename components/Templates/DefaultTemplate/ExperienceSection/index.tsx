@@ -3,6 +3,8 @@ import { Card } from "../Card";
 import { HeadingContainer } from "../HeadingContainer";
 import { IoCalendarOutline } from "react-icons/io5";
 import { Overlay } from "../Overlay";
+import { UI } from "@/components/ui";
+import { Heading } from "./Heading";
 
 export const ExperienceSection = () => {
   return (
@@ -24,9 +26,7 @@ export const ExperienceSection = () => {
                 <div className="flex-grow">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h1 className="font-semibold leading-4  text-neutral-800">
-                        Frontend Developer
-                      </h1>
+                      <Heading>Frontend Developer</Heading>
                       <p className="flex items-center mt-1 text-neutral-500 text-sm font-medium">
                         <span>Hive</span>
                         <span>
@@ -34,7 +34,7 @@ export const ExperienceSection = () => {
                         </span>
                         <span>Full-Time</span>
                       </p>
-                      <p className="flex items-center mt-1.5 gap-x-1 text-neutral-500 text-sm">
+                      <p className="flex items-center mt-2 gap-x-1 text-neutral-500 text-sm">
                         <MapPin size={12} />
                         <span>Phoenix, Arizona, USA</span>
                       </p>
@@ -44,12 +44,14 @@ export const ExperienceSection = () => {
                       <span>Jan 2023 - feb 2025</span>
                     </div>
                   </div>
-                  <div className="mt-3 pb-5 text-neutral-500 font-medium  text-sm">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Asperiores aut autem pariatur blanditiis. Voluptates
-                    molestias repudiandae illum adipisci libero, unde corrupti
-                    inventore culpa aut temporibus in, pariatur totam architecto
-                    consequuntur?
+                  <div className="mt-3 pb-5 ">
+                    <UI.Text>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Asperiores aut autem pariatur blanditiis. Voluptates
+                      molestias repudiandae illum adipisci libero, unde corrupti
+                      inventore culpa aut temporibus in, pariatur totam
+                      architecto consequuntur?
+                    </UI.Text>
                   </div>
                 </div>
               </article>
