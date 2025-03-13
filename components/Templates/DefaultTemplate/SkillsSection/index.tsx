@@ -34,7 +34,7 @@ const fullStackSkills = [
 ];
 
 export const SkillsSection = () => {
-  const { headingFontSize, tracking } = useSelector(
+  const { tracking } = useSelector(
     (state: RootState) => state.customization.customize
   );
 

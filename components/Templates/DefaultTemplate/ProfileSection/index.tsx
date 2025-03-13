@@ -1,5 +1,4 @@
 import { MapPin, Rocket } from "lucide-react";
-import Image from "next/image";
 import { Card } from "../Card";
 import { IconBox } from "../IconBox";
 import { Overlay } from "../Overlay";
