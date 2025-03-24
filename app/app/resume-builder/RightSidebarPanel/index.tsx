@@ -1,11 +1,12 @@
 import { UI } from "@/components/ui";
 import { FontStyleDropdown } from "../FontStyleDropdown";
 import { CollapsableMenu } from "../CollapsableMenu";
-import { PaintbrushVertical, Telescope } from "lucide-react";
+import { Check, PaintbrushVertical, Telescope } from "lucide-react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { updateCustomization } from "@/redux/features/customize/customizeSlice";
+import { cn } from "@/lib/utils";
 
 const colorThemes = [
   { primary: "#1E3A8A", secondary: "#3B82F6" }, // Classic Blue
@@ -27,9 +28,12 @@ const colorThemes = [
 
 export const RightSidebarPanel = () => {
   const [fontSize, setFontSize] = React.useState([10]);
-  const { lineHeight, headingFontSize, tracking } = useSelector(
-    (state: RootState) => state.customization.customize
-  );
+  const {
+    lineHeight,
+    headingFontSize,
+    tracking,
+    color: currentColor,
+  } = useSelector((state: RootState) => state.customization.customize);
   const dispatch = useAppDispatch();
 
   return (
@@ -41,6 +45,7 @@ export const RightSidebarPanel = () => {
             <p className="font-bold text-xs mb-2 text-primary-black">COLORS</p>
             <div className="flex flex-wrap gap-2  items-center">
               {colorThemes.map((color, index) => {
+                const activeColor = color.secondary === currentColor;
                 return (
                   <button
                     key={index}
@@ -48,8 +53,15 @@ export const RightSidebarPanel = () => {
                       dispatch(updateCustomization({ color: color.secondary }))
                     }
                     style={{ backgroundColor: color.primary }}
-                    className="inline-block flex-shrink-0 rounded-full  size-[1.3rem] hover:ring-offset-2 hover:ring-2 ring-neutral-300 ring-offset-neutral-200 transition-all duration-300"
-                  ></button>
+                    className={cn(
+                      "grid text-center items-center flex-shrink-0 rounded-full  size-[1.3rem] ring-offset-2 hover:ring-2 ring-neutral-300 ring-offset-neutral-200 transition-all duration-300",
+                      activeColor ? "ring-2" : ""
+                    )}
+                  >
+                    {activeColor && (
+                      <Check size={14} color="#fff" className="mx-auto" />
+                    )}
+                  </button>
                 );
               })}
             </div>

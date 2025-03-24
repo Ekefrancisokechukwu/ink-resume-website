@@ -11,9 +11,12 @@ interface CustomizationState {
   tracking: number;
 }
 
+type Layout = "gridRight" | "gridLeft" | "list";
+
 interface IcustomizationSlice {
   customize: CustomizationState;
   isSidebarCollapse: boolean;
+  layout: Layout;
 }
 
 const initialState: IcustomizationSlice = {
@@ -28,6 +31,7 @@ const initialState: IcustomizationSlice = {
     size: 100,
   },
   isSidebarCollapse: false,
+  layout: "gridRight",
 };
 
 const customizationSlice = createSlice({
@@ -40,7 +44,9 @@ const customizationSlice = createSlice({
     ) => {
       state.customize = { ...state.customize, ...action.payload };
     },
-
+    handleLayout: (state, action: PayloadAction<Layout>) => {
+      state.layout = action.payload;
+    },
     setSize: (state, action: PayloadAction<number>) => {
       state.customize.size = action.payload;
     },
@@ -50,7 +56,7 @@ const customizationSlice = createSlice({
   },
 });
 
-export const { setSize, toggleSidebar, updateCustomization } =
+export const { setSize, toggleSidebar, updateCustomization, handleLayout } =
   customizationSlice.actions;
 
 export default customizationSlice.reducer;

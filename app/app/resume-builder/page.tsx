@@ -16,9 +16,9 @@ const ResumeBuilder = () => {
       <LeftSidebarPanel />
       <motion.section
         animate={editMode ? { scale: 0.95 } : { scale: 1 }}
-        className="pt-11 pb-16 md:px-10 px-5 transition-all duration-500"
+        className="pt-11 pb-16 md:px-10 px-5  overflow-x-auto transition-all duration-500"
       >
-        <div className="shadow-lg bg-white p-2 max-w-[60rem] h-full  min-h-[120vh] rounded-xl mx-auto">
+        <div className="shadow-lg bg-white p-2 max-w-[90rem] h-full  min-h-[120vh] rounded-xl mx-auto">
           <Template.DefaultTemplate />
         </div>
       </motion.section>
