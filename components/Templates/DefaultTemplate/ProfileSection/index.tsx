@@ -4,6 +4,7 @@ import { IconBox } from "../IconBox";
 import { Overlay } from "../Overlay";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import Image from "next/image";
 
 export const ProfileSection = () => {
   const { tracking } = useSelector(
@@ -16,7 +17,7 @@ export const ProfileSection = () => {
 
   return (
     <div className="flex items-center gap-x-3 z-10 relative group/card">
-      {/* <div className="w-[8rem] shrink-0 rounded-xl relative h-[9rem] bg-neutral-100">
+      <div className="w-[8rem] shrink-0 rounded-xl relative h-[9rem] bg-neutral-100">
         <Image
           alt="user profile pic"
           src={"/profile.jpeg"}
@@ -24,7 +25,7 @@ export const ProfileSection = () => {
           height={500}
           className="object-cover w-full h-full rounded-xl flex-grow"
         />
-      </div> */}
+      </div>
       <Card className="flex flex-col p-4 justify-between h-[9rem] flex-grow">
         <IconBox Icon={Rocket} />
         <div>

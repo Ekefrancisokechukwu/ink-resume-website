@@ -5,6 +5,7 @@ import { Layout } from "@/components/Layout";
 import { VideoSection } from "./VideoSection";
 import { Hero } from "./Hero";
 import { HowItWorks } from "./HowItWorks";
+import { Footer } from "@/components/Layout/Footer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <VideoSection />
       <HowItWorks />
+      <Footer />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { SpellCheck } from "lucide-react";
 import {
   motion,
-  useMotionValue,
   useMotionValueEvent,
   useScroll,
   useSpring,
@@ -11,13 +10,8 @@ import Image from "next/image";
 import React from "react";
 
 export const HowItWorks = () => {
-  const headingTargetRef = React.useRef(null);
   const scrollContainerRef = React.useRef(null);
 
-  // const { scrollYProgress } = useScroll({
-  //   // target: spanTargetRef,
-  //   // offset: ["start end", "end start"],
-  // });
   const { scrollYProgress } = useScroll();
 
   const smoothProgress = useSpring(scrollYProgress, {
@@ -30,27 +24,51 @@ export const HowItWorks = () => {
     console.log("Page scroll: ", latest);
   });
 
-  const spanTranslateL = useTransform(smoothProgress, [0.219, 1], [0, -1000]);
-  const spanTranslateR = useTransform(smoothProgress, [0.219, 1], [0, 1000]);
-  const opacityHeading = useTransform(smoothProgress, [0.219, 0.6], [1, 0]);
+  const spanTranslateL = useTransform(smoothProgress, [0.229, 1], [0, -1000]);
+  const spanTranslateR = useTransform(smoothProgress, [0.229, 1], [0, 1000]);
+  const opacityHeading = useTransform(smoothProgress, [0.229, 0.5], [1, 0]);
 
-  // const x = useTransform()
   const viewportWidth =
     typeof window !== "undefined" ? window.innerWidth : 1300;
-  const scrollDistance = 500 - viewportWidth + 100;
+  const scrollDistance = 700 - viewportWidth + 100;
 
   const x = useTransform(smoothProgress, [0.26573, 1], [0, scrollDistance]);
-  const scaleCardDown = useTransform(smoothProgress, [0.219, 0.4], [0.5, 1]);
+  const scaleCardDown = useTransform(smoothProgress, [0.223, 0.32], [0.5, 1]);
   const rotateCard = useTransform(
     smoothProgress,
-    [0.21, 0.4],
+    [0.223, 0.313],
     ["70deg", "0deg"]
   );
-  const opacityCard = useTransform(smoothProgress, [0.219, 0.4], ["0", "1"]);
+  const opacityCard = useTransform(smoothProgress, [0.235, 0.27], ["0", "1"]);
+  const tranlate1 = useTransform(
+    smoothProgress,
+    [0.2904, 0.3],
+    ["-25%", "-180%"]
+  );
+  const tranlate2 = useTransform(
+    smoothProgress,
+    [0.2904, 0.3],
+    ["-25%", "-70%"]
+  );
+  const tranlate3 = useTransform(
+    smoothProgress,
+    [0.2904, 0.3],
+    ["-25%", "40%"]
+  );
+  const tranlate4 = useTransform(
+    smoothProgress,
+    [0.2904, 0.3],
+    ["-25%", "150%"]
+  );
+  const tranlate5 = useTransform(
+    smoothProgress,
+    [0.2904, 0.3],
+    ["-25%", "260%"]
+  );
 
   return (
-    <section className="h-[800lvh]  bg-white relative ">
-      <div className="h-[80vh] overflow-x-hidden  sticky top-[4.1rem] flex    items-center justify-evenly">
+    <section className="h-[600lvh]  bg-white relative ">
+      <div className="h-[90vh] overflow-hidden  sticky top-[4.1rem] flex bg-neutral-100    items-center justify-evenly">
         <motion.div
           ref={scrollContainerRef}
           style={{
@@ -58,17 +76,18 @@ export const HowItWorks = () => {
             perspectiveOrigin: "center",
             x: x,
           }}
-          className="flex pl-[20vw] z-10 absolute inset-0  space-x-11 items-center justify-evenly "
+          className="flex pl-[20vw] z-10 absolute inset-0   space-x-11 items-center justify-evenly "
         >
           <motion.div
             style={{
               scale: scaleCardDown,
               opacity: opacityCard,
               rotateY: rotateCard,
+              translate: tranlate1,
             }}
             className="w-[20rem] flex-shrink-0  aspect-[1/1.2] absolute "
           >
-            <div className="rotate-6 h-[25rem] rounded-md relative overflow-hidden bg-white shadow-[0px_4px_10px_rgba(0,0,0,0.1)] p-4">
+            <div className="rotate-3 h-[25rem] rounded-md relative overflow-hidden bg-white shadow-[0px_4px_12px_rgba(0,0,0,0.2)] p-4">
               <p className="text-xl font-medium">
                 Personalize your resume with a{" "}
                 <span className="text-sky-600 italic">color</span> that
@@ -84,11 +103,16 @@ export const HowItWorks = () => {
               </div>
             </div>
           </motion.div>
-          {/* <motion.div
-            style={{ scale: scaleCardDown }}
-            className=" w-[20rem] flex-shrink-0  aspect-[1/1.2] "
+          <motion.div
+            style={{
+              scale: scaleCardDown,
+              opacity: opacityCard,
+              rotateY: rotateCard,
+              translate: tranlate2,
+            }}
+            className=" w-[20rem]  flex-shrink-0 absolute aspect-[1/1.2] "
           >
-            <div className="rotate-3 h-[25rem] flex flex-col justify-between rounded-md relative overflow-hidden bg-white shadow-[0px_4px_10px_rgba(0,0,0,0.1)] p-4">
+            <div className="rotate-3 h-[25rem] flex flex-col justify-between rounded-md relative overflow-hidden bg-white shadow-[0px_4px_12px_rgba(0,0,0,0.2)] p-4">
               <SpellCheck size={35} />
 
               <p className="text-xl font-medium">
@@ -97,11 +121,17 @@ export const HowItWorks = () => {
               </p>
             </div>
           </motion.div>
+
           <motion.div
-            style={{ scale: scaleCardDown }}
+            style={{
+              rotateY: rotateCard,
+              translate: tranlate3,
+              scale: scaleCardDown,
+              opacity: opacityCard,
+            }}
             className="    w-[20rem] flex-shrink-0  aspect-[1/1.2] "
           >
-            <div className="-rotate-6 h-[25rem] rounded-md relative overflow-hidden bg-white shadow-[0px_4px_10px_rgba(0,0,0,0.1)] p-4">
+            <div className="-rotate-2 h-[25rem] rounded-md relative overflow-hidden bg-white shadow-[0px_4px_10px_rgba(0,0,0,0.1)] p-4">
               <p className="text-xl font-medium">
                 Fine-tune{" "}
                 <span className="text-sky-600 italic">
@@ -120,8 +150,13 @@ export const HowItWorks = () => {
             </div>
           </motion.div>
           <motion.div
-            style={{ scale: scaleCardDown }}
-            className="    w-[20rem] flex-shrink-0  aspect-[1/1.2] "
+            style={{
+              rotateY: rotateCard,
+              translate: tranlate4,
+              scale: scaleCardDown,
+              opacity: opacityCard,
+            }}
+            className="   w-[20rem] flex-shrink-0 absolute  aspect-[1/1.2] "
           >
             <div className="-rotate-2 h-[25rem] rounded-md relative overflow-hidden bg-white shadow-[0px_4px_10px_rgba(0,0,0,0.1)] p-4">
               <p className="text-xl font-medium">
@@ -145,9 +180,15 @@ export const HowItWorks = () => {
               </div>
             </div>
           </motion.div>
+
           <motion.div
-            transition={{ duration: 1 }}
-            className="   w-[20rem] flex-shrink-0  aspect-[1/1.2] "
+            style={{
+              rotateY: rotateCard,
+              translate: tranlate5,
+              scale: scaleCardDown,
+              opacity: opacityCard,
+            }}
+            className="   w-[20rem] flex-shrink-0 absolute  aspect-[1/1.2] "
           >
             <div className="rotate-0 h-[25rem] rounded-md relative overflow-hidden bg-white shadow-[0px_4px_10px_rgba(0,0,0,0.1)] p-4">
               <p className="text-xl font-medium">
@@ -166,11 +207,11 @@ export const HowItWorks = () => {
                 />
               </div>
             </div>
-          </motion.div> */}
+          </motion.div>
         </motion.div>
         <motion.h1
           style={{ opacity: opacityHeading }}
-          className="text-[9rem]  font-bold text-center"
+          className="text-[8rem]  font-bold text-center"
         >
           <motion.span
             style={{ translateX: spanTranslateL }}
@@ -178,6 +219,7 @@ export const HowItWorks = () => {
           >
             There&apos;s{" "}
           </motion.span>{" "}
+          <span>&nbsp;</span>
           <motion.span
             style={{ translateX: spanTranslateR }}
             className="inline-block"
