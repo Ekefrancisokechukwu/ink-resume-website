@@ -16,7 +16,7 @@ export const Wrapper = ({
   return (
     <Tag
       className={cn(
-        "2xl:max-w-[90rem] xl:max-w-[75rem]  mx-auto px-8",
+        "2xl:max-w-[90rem] xl:max-w-[75rem] w-full  mx-auto lg:px-8 px-4",
         className
       )}
       {...props}

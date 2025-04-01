@@ -29,10 +29,10 @@ export const VideoSection = () => {
   );
 
   return (
-    <div ref={containerRef} className="py-20 ">
+    <div ref={containerRef} className="md:py-20 py-10">
       <motion.div
         style={{ scale: videoScale, boxShadow: shadowBox }}
-        className=" 2xl:max-w-[90rem] xl:max-w-[75rem]  rounded-xl mx-auto px-8"
+        className="2xl:max-w-[90rem] xl:max-w-[75rem]  rounded-xl mx-auto px-8"
       >
         <motion.div className="rounded-xl">
           <video

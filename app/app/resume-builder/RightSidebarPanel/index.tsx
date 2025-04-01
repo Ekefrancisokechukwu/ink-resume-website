@@ -23,7 +23,7 @@ const colorThemes = [
   { primary: "#0E7490", secondary: "#22D3EE" }, // Ocean Blue
   { primary: "#9333EA", secondary: "#D8B4FE" }, // Electric Violet
   { primary: "#A16207", secondary: "#FACC15" }, // Golden Brown
-  { primary: "#9D174D", secondary: "#F472B6" }, // Raspberry Pink
+  { primary: "#a3a3a3", secondary: "#a3a3a3" }, // Golden Brown
 ];
 
 export const RightSidebarPanel = () => {

@@ -28,7 +28,6 @@ const googleFonts = [
 ];
 
 const FontDropdown = () => {
-  const [fonts, setFonts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   useClickOutside(isOpen, dropdownRef, () => setIsOpen(false));

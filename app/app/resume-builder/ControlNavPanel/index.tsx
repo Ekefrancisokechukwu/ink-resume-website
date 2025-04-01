@@ -2,7 +2,7 @@
 
 import { defaultTransition } from "@/constant/transitions";
 import { cn } from "@/lib/utils";
-import { handleLayout } from "@/redux/features/customize/customizeSlice";
+import { updateCustomization } from "@/redux/features/customize/customizeSlice";
 import { toggleEditMode } from "@/redux/features/resumeMode/resumeModeSlice";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { LayoutList, LayoutPanelLeft, Pencil, PencilOff } from "lucide-react";
@@ -35,7 +35,9 @@ export const ControlNavPanel = () => {
             <motion.button
               transition={{ type: "spring", duration: 0.4, damping: 8 }}
               whileHover={{ translateY: -10 }}
-              onClick={() => dispatch(handleLayout("gridLeft"))}
+              onClick={() =>
+                dispatch(updateCustomization({ layout: "gridLeft" }))
+              }
               whileTap={{ scale: 1.1 }}
               className="size-[2.5rem] grid place-items-center bg-white borde shadow-xl"
             >
@@ -45,13 +47,15 @@ export const ControlNavPanel = () => {
               transition={{ type: "spring", duration: 0.4, damping: 8 }}
               whileHover={{ translateY: -10 }}
               whileTap={{ scale: 1.1 }}
-              onClick={() => dispatch(handleLayout("list"))}
+              onClick={() => dispatch(updateCustomization({ layout: "list" }))}
               className="size-[2.5rem] grid place-items-center bg-white borde shadow-xl"
             >
               <LayoutList size={22} />
             </motion.button>
             <motion.button
-              onClick={() => dispatch(handleLayout("gridRight"))}
+              onClick={() =>
+                dispatch(updateCustomization({ layout: "gridRight" }))
+              }
               transition={{ type: "spring", duration: 0.4, damping: 8 }}
               whileHover={{ translateY: -10 }}
               whileTap={{ scale: 1.1 }}

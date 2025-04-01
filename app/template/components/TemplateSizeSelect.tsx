@@ -13,7 +13,7 @@ const TemplateSizeSelect = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   useClickOutside(isOpen, dropdownRef, () => setIsOpen(false));
-  const [templateSize, setTemplateSize] = useState<string>("");
+  // const [templateSize, setTemplateSize] = useState<string>("");
   const size = useSelector(
     (state: RootState) => state.customization.customize.size
   );

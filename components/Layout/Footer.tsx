@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { UI } from "../ui";
-import { MoveRight } from "lucide-react";
+import { Github, MoveRight } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -9,9 +9,10 @@ export const Footer = () => {
         <UI.Wrapper className="flex w-full  items-center justify-between pt-[5rem] pb-[4rem]">
           <div>
             <div>
-              <Link href={""} className="text-6xl group">
+              <Link href={""} className="sm:text-6xl text-2xl group">
                 <span className="group-hover:translate-x-4 transition-all duration-500   flex items-center gap-x-3 font-semibold text-blue-600">
-                  Start for free <MoveRight size={70} />
+                  Start for free{" "}
+                  <MoveRight className="sm:size-[70] size-[50]" />
                 </span>
                 <span className="block"> account needed.</span>
               </Link>
@@ -21,17 +22,28 @@ export const Footer = () => {
         </UI.Wrapper>
         <footer className="max-w-[85rem] gap-x-14 gap-y-7 mx-auto bg-neutral-100 rounded-t-xl px-[4rem] py-[2.5rem] flex lg:flex-row flex-col items-center justify-between">
           <p className="flex-1">
-            Page Buddy is built on the traditional land of the Wurundjeri and
-            Boon Wurrung peoples of the Kulin nation. We pay our respect to
-            Elders past, present and emerging. Sovereignty has never been ceded.
-            It always was and always will be Aboriginal land.
+            Ink Resume Builder is crafted with creativity and innovation,
+            helping you design resumes that stand out. We are committed to
+            inclusivity, respect, and empowerment for all individuals in their
+            career journeys
           </p>
           <div className="flex-shrink-0">
             <p className="flex items-center gap-x-3">
-              <span>Made with ❤️</span>
+              <span>Made</span>
 
-              <Link href={""} className="font-semibold">
-                by Francis
+              <Link
+                target="_blank"
+                href={"https://ekefrancisokechukwu.vercel.app/"}
+                className="font-semibold  hover:underline"
+              >
+                by Eke.dev
+              </Link>
+              <Link
+                target="_blank"
+                href={"https://github.com/Ekefrancisokechukwu"}
+                className="font-semibold hover:scale-110 "
+              >
+                <Github size={18} />
               </Link>
             </p>
             <p> ©2024 </p>

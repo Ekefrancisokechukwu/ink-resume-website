@@ -3,27 +3,32 @@ import { cn } from "@/lib/utils";
 import {
   DndContext,
   closestCenter,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
-  type DragEndEvent,
+  // KeyboardSensor,
+  // PointerSensor,
+  // useSensor,
+  // useSensors,
+  // type DragEndEvent,
 } from "@dnd-kit/core";
 import { restrictToParentElement } from "@dnd-kit/modifiers";
 import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
+  // arrayMove,
+  // SortableContext,
+  // sortableKeyboardCoordinates,
   useSortable,
-  verticalListSortingStrategy,
+  // verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CirclePlus, GripHorizontal, Pencil, Trash } from "lucide-react";
 import React from "react";
 
 export const Education = () => {
   const [educations, setEducations] = React.useState([]);
+
+  function handleFunc() {
+    setEducations([]);
+  }
+
   return (
-    <div>
+    <div onAnimationEnd={handleFunc}>
       <UI.Heading text="Education summary" />
       <p className="text-neutral-500  mt-1">
         Add, edit, or delete your education.
@@ -68,7 +73,7 @@ const SortableEducation = () => {
   const {
     attributes,
     listeners,
-    setNodeRef,
+    // setNodeRef,
     transform,
     transition,
     isDragging,
@@ -87,6 +92,7 @@ const SortableEducation = () => {
 
   return (
     <div
+      style={style}
       className={cn(
         "border rounded-xl bg-white flex gap-x-7 items-center px-3 py-2",
         isDragging ? "shadow-lg z-10 relative" : ""

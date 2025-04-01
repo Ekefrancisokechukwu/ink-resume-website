@@ -3,7 +3,7 @@ import { creepster } from "../fonts";
 
 export const Logo = () => {
   return (
-    <Link href={"/"} className={`text-2xl ${creepster.className}`}>
+    <Link href={"/"} className={`sm:text-2xl text-lg ${creepster.className}`}>
       Ink Resume
     </Link>
   );

@@ -3,16 +3,9 @@
 import { creepster } from "@/components/fonts";
 import Link from "next/link";
 import TemplateName from "./TemplateName";
-import {
-  CircleMinus,
-  CirclePlus,
-  Search,
-  Download,
-  Link2Icon,
-} from "lucide-react";
+import { Link2Icon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import HeaderControlPanel from "./HeaderControlPanel";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "@/redux/store";

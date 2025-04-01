@@ -2,15 +2,15 @@
 
 import { CloudUpload } from "lucide-react";
 import { FaFile } from "react-icons/fa6";
-import { FaCheckCircle } from "react-icons/fa";
+// import { FaCheckCircle } from "react-icons/fa";
 import React from "react";
 import { motion } from "motion/react";
-import { UI } from "@/components/ui";
+// import { UI } from "@/components/ui";
 
 const UploadResumeModal = () => {
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
-  const [loading, setLoading] = React.useState(false);
-  const [progress, setProgress] = React.useState(0);
+  // const [loading, setLoading] = React.useState(false);
+  // const [progress, setProgress] = React.useState(0);
 
   function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     if (!event.target.files) return;

@@ -211,7 +211,7 @@ export const HowItWorks = () => {
         </motion.div>
         <motion.h1
           style={{ opacity: opacityHeading }}
-          className="text-[8rem]  font-bold text-center"
+          className="xl:text-[8rem] lg:text-[6rem]  sm:text-[5rem] text-[3rem]  font-bold text-center"
         >
           <motion.span
             style={{ translateX: spanTranslateL }}

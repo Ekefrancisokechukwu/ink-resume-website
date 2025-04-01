@@ -1,6 +1,6 @@
 import { UI } from "@/components/ui";
 import { CirclePlus, Trash } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 
 type Certificate = {
   title: string;
@@ -40,6 +40,11 @@ const SingleCertificate = () => {
   const [value, setValue] = React.useState(
     "JavaScript Algorithms and Data Structures - FreeCodeCamp"
   );
+
+  useEffect(() => {
+    setValue("");
+  }, []);
+
   return (
     <li className="border flex gap-x-5 h-14 items-center justify-between bg-white rounded-xl px-4 py-3">
       <div className="flex-grow">

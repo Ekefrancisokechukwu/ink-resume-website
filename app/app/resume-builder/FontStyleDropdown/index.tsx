@@ -1,11 +1,13 @@
 "use client";
 
-import { UI } from "@/components/ui";
 import { defaultTransition } from "@/constant/transitions";
 import { useClickOutside } from "@/hooks";
+import { updateCustomization } from "@/redux/features/customize/customizeSlice";
+import { RootState, useAppDispatch } from "@/redux/store";
 import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const fontOptions = [
   {
@@ -75,33 +77,42 @@ const fontOptions = [
   },
 ];
 
-const googleFonts = [
-  "Roboto",
-  "Open Sans",
-  "Lato",
-  "Montserrat",
-  "Oswald",
-  "Raleway",
-  "Merriweather",
-  "Noto Sans",
-  "PT Sans",
-  "Source Sans Pro",
-  "Poppins",
-  "Playfair Display",
-  "Ubuntu",
-  "Roboto Condensed",
-  "Nunito",
-  "Cabin",
-  "Work Sans",
-  "Lora",
-  "Inter",
-  "Mukta",
-];
+// UNUSED FONTS
+// const googleFonts = [
+//   "Roboto",
+//   "Open Sans",
+//   "Lato",
+//   "Montserrat",
+//   "Oswald",
+//   "Raleway",
+//   "Merriweather",
+//   "Noto Sans",
+//   "PT Sans",
+//   "Source Sans Pro",
+//   "Poppins",
+//   "Playfair Display",
+//   "Ubuntu",
+//   "Roboto Condensed",
+//   "Nunito",
+//   "Cabin",
+//   "Work Sans",
+//   "Lora",
+//   "Inter",
+//   "Mukta",
+// ];
 
 export const FontStyleDropdown = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef(null);
   useClickOutside(isOpen, dropdownRef, () => setIsOpen(false));
+  const fontFamily = useSelector(
+    (state: RootState) => state.customization.customize.fontFamily
+  );
+  const dispatch = useAppDispatch();
+
+  function handleFontStyle(font: string) {
+    dispatch(updateCustomization({ fontFamily: font }));
+  }
 
   return (
     <div>
@@ -110,7 +121,7 @@ export const FontStyleDropdown = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="w-full font-semibold flex items-center text-primary-black  gap-x-2 justify-between text-sm px-4 py-1 bg-neutral-100 transition-colors duration-500 hover:bg-neutral-200 rounded-lg"
         >
-          Roboto <ChevronDown size={14} />
+          {fontFamily} <ChevronDown size={14} />
         </button>
         <AnimatePresence mode="sync">
           {isOpen && (
@@ -131,6 +142,7 @@ export const FontStyleDropdown = () => {
                     <button
                       style={font.style}
                       key={i}
+                      onClick={() => handleFontStyle(font.value)}
                       className="inline-flex text-sm transition-all hover:bg-neutral-100 duration-300 text-primary-black py-1.5 px-4"
                     >
                       {font.label}

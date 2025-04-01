@@ -31,12 +31,21 @@ export const Header = () => {
     >
       <UI.Logo />
       <div className="flex items-center gap-x-3">
-        <UI.Button variant={"outline"}>Try Demo</UI.Button>
+        <UI.Button variant={"outline"} className="sm:inline-flex hidden">
+          Try Demo
+        </UI.Button>
         <div className="h-8 w-1 border-r " />
-        <UI.Button variant={"ghost"} asChild>
+        <UI.Button variant={"ghost"} asChild className="sm:inline-flex hidden">
           <Link href={"/auth"}>Login</Link>
         </UI.Button>
-        <UI.Button asChild>
+        <UI.Button
+          variant={"outline"}
+          asChild
+          className="sm:hidden inline-flex"
+        >
+          <Link href={"/auth"}>Login</Link>
+        </UI.Button>
+        <UI.Button asChild className="sm:inline-flex hidden">
           <Link href={"/app/start-here"}>Get Started</Link>
         </UI.Button>
       </div>

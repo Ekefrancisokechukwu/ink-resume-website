@@ -1,39 +1,39 @@
 "use client";
 
-import { UI } from "@/components/ui";
+// import { UI } from "@/components/ui";
 import { StepperNav } from "./StepperNav";
-import {
-  Check,
-  ChevronsUpDown,
-  CirclePlus,
-  CircleUser,
-  GripVertical,
-  Pencil,
-  Plus,
-  Trash,
-} from "lucide-react";
-import { countries, months } from "@/constant";
+// import {
+//   Check,
+//   ChevronsUpDown,
+//   CirclePlus,
+//   CircleUser,
+//   GripVertical,
+//   Pencil,
+//   Plus,
+//   Trash,
+// } from "lucide-react";
+// import { countries, months } from "@/constant";
 import React from "react";
-import { cn, generateYears } from "@/lib/utils";
+// import { cn, generateYears } from "@/lib/utils";
 import { motion } from "motion/react";
-import {
-  DndContext,
-  closestCenter,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
-  type DragEndEvent,
-} from "@dnd-kit/core";
-import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  useSortable,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
-import { restrictToParentElement } from "@dnd-kit/modifiers";
-import { AddExperince } from "./AddExperince";
+// import {
+//   DndContext,
+//   closestCenter,
+//   KeyboardSensor,
+//   PointerSensor,
+//   useSensor,
+//   useSensors,
+//   type DragEndEvent,
+// } from "@dnd-kit/core";
+// import {
+//   arrayMove,
+//   SortableContext,
+//   sortableKeyboardCoordinates,
+//   useSortable,
+//   verticalListSortingStrategy,
+// } from "@dnd-kit/sortable";
+// import { restrictToParentElement } from "@dnd-kit/modifiers";
+// import { AddExperince } from "./AddExperince";
 import { Skills } from "./Skills";
 import { Summary } from "./Summary";
 import { Experience } from "./Experince";

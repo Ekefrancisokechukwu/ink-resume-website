@@ -10,7 +10,9 @@ import { useSelector } from "react-redux";
 import { cn } from "@/lib/utils";
 
 export const DefaultTemplate = () => {
-  const layout = useSelector((state: RootState) => state.customization.layout);
+  const layout = useSelector(
+    (state: RootState) => state.customization.customize.layout
+  );
 
   return (
     <div

@@ -6,7 +6,7 @@ import { cn, generateYears } from "@/lib/utils";
 import { Check, ChevronsUpDown } from "lucide-react";
 import React from "react";
 
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 export const AddExperince = () => {
@@ -153,26 +153,26 @@ export const AddExperince = () => {
   );
 };
 
-const Responsibilities = () => {
-  return (
-    <div>
-      <UI.Heading text="List your responsibilitiess" />
-      <p className="text-neutral-600 mt-1">
-        Write what you did as a{" "}
-        <span className="font-semibold capitalize">frontend developer </span> at{" "}
-        <span className="font-semibold capitalize">pickriders </span>
-      </p>
-      <p className="mt-3 font-semibold text-neutral-600">
-        Pick from our ready-to-use phrases or write your own and get AI writing
-        help.
-      </p>
-      <RichTextEditor />
-    </div>
-  );
-};
+// const Responsibilities = () => {
+//   return (
+//     <div>
+//       <UI.Heading text="List your responsibilitiess" />
+//       <p className="text-neutral-600 mt-1">
+//         Write what you did as a{" "}
+//         <span className="font-semibold capitalize">frontend developer </span> at{" "}
+//         <span className="font-semibold capitalize">pickriders </span>
+//       </p>
+//       <p className="mt-3 font-semibold text-neutral-600">
+//         Pick from our ready-to-use phrases or write your own and get AI writing
+//         help.
+//       </p>
+//       <RichTextEditor />
+//     </div>
+//   );
+// };
 
 const RichTextEditor = () => {
-  const [content, setContent] = React.useState("");
+  // const [content, setContent] = React.useState("");
 
   return (
     <div className="mt-10 bg-white p-4 border rounded-xl">
